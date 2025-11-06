@@ -1,5 +1,7 @@
+"use client";
 import "@/app/globals.css";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Footer from "@/components/Footer";
 import { Roboto } from "next/font/google";
 const roboto = Roboto({
@@ -20,6 +22,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+
   return (
     <html lang="en" className={roboto.className}>
       <body>
@@ -40,7 +44,9 @@ export default function RootLayout({
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-black text-lg hover:text-primary"
+                  className={`text-lg ${
+                    pathname === item.href ? "text-[#EF4141]" : "text-gray-500"
+                  } hover:text-[#EF4141]`}
                 >
                   {item.name}
                 </Link>
