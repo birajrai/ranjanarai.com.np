@@ -25,7 +25,7 @@ The website showcases the different types of achars, provides product informatio
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/birajrai/ranjanarai.git
+   git clone https://github.com/birajrai/ranjanarai.com.np.git
    ```
 
 2. Install dependencies:
