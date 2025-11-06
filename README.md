@@ -14,8 +14,8 @@ The website showcases the different types of achars, provides product informatio
 
 ## Tech Stack
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
+- Next.js v16
+- React v19
+- TypeScript v5
+- Tailwind CSS v4
 - Bun (based on `bun.lock`)
