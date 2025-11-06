@@ -11,11 +11,13 @@ export interface Product {
   stock: "available" | "sold-out" | "pre-order";
   category: string;
   gallery: string[];
+  featured: boolean;
 }
 
 export const products: Product[] = [
   {
     id: 1,
+    featured: true,
     name: "Buff Pickle",
     slug: "buff-pickle",
     description: "A spicy and tangy pickle made from the finest sukuti.",
@@ -34,6 +36,7 @@ export const products: Product[] = [
   },
   {
     id: 2,
+    featured: true,
     name: "Chicken Pickle",
     slug: "chicken-pickle",
     description: "A spicy and tangy pickle made from the finest chicken.",
@@ -52,6 +55,7 @@ export const products: Product[] = [
   },
   {
     id: 3,
+    featured: false,
     name: "Aam ko Achar",
     slug: "aam-ko-achar",
     description:
@@ -70,6 +74,7 @@ export const products: Product[] = [
   },
   {
     id: 4,
+    featured: false,
     name: "Lasun ko Achar",
     slug: "lasun-ko-achar",
     description:
@@ -88,6 +93,7 @@ export const products: Product[] = [
   },
   {
     id: 5,
+    featured: false,
     name: "Tareko Khursani Achar",
     slug: "tareko-khursani-achar",
     description:
@@ -106,6 +112,7 @@ export const products: Product[] = [
   },
   {
     id: 6,
+    featured: false,
     name: "Akabare Khursani Achar",
     slug: "akabare-khursani-achar",
     description:
@@ -124,6 +131,7 @@ export const products: Product[] = [
   },
   {
     id: 7,
+    featured: false,
     name: "Golbheda ko Achar",
     slug: "golbheda-ko-achar",
     description:
@@ -142,6 +150,7 @@ export const products: Product[] = [
   },
   {
     id: 8,
+    featured: false,
     name: "Mula ko Achar",
     slug: "mula-ko-achar",
     description:
@@ -160,6 +169,7 @@ export const products: Product[] = [
   },
   {
     id: 9,
+    featured: false,
     name: "Lapsi ko Achar",
     slug: "lapsi-ko-achar",
     description:
@@ -178,6 +188,7 @@ export const products: Product[] = [
   },
   {
     id: 10,
+    featured: false,
     name: "Tama ko Achar",
     slug: "tama-ko-achar",
     description:
@@ -196,6 +207,7 @@ export const products: Product[] = [
   },
   {
     id: 11,
+    featured: false,
     name: "Gundruk ko Achar",
     slug: "gundruk-ko-achar",
     description:
@@ -214,6 +226,7 @@ export const products: Product[] = [
   },
   {
     id: 12,
+    featured: false,
     name: "Aloo ko Achar",
     slug: "aloo-ko-achar",
     description:
