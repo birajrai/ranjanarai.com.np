@@ -2,7 +2,7 @@
 
 This is the **source code** for [ranjanarai.com.np](https://ranjanarai.com.np), the personal website of **Ranjana Rai**, featuring homemade **achar (pickle) products** with an online order system.
 
-The website showcases the different types of achars, provides product information, and allows customers to place orders with manual payment verification.
+The website showcases the different types of achars, provides product information, and allows customers to place orders with **manual payment verification via QR code**.
 
 ## Features
 
@@ -17,27 +17,5 @@ The website showcases the different types of achars, provides product informatio
 - Next.js
 - React
 - TypeScript
-- Tailwind CSS (assuming, based on modern Next.js practices and `globals.css`)
+- Tailwind CSS
 - Bun (based on `bun.lock`)
-
-## Usage
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/birajrai/ranjanarai.com.np.git
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   bun install
-   ```
-
-3. Run the development server:
-
-   ```bash
-   bun run dev
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
