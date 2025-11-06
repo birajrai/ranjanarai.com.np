@@ -26,6 +26,15 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={roboto.className}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+      </head>
       <body className="bg-gray-50">
         <nav className="bg-white p-4">
           <div className="container mx-auto flex justify-between items-center">
@@ -44,10 +53,9 @@ export default function RootLayout({
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`text-lg ${
-                    pathname === item.href ? "text-[#EF4141]" : "text-gray-500"
-                  } hover:text-[#EF4141]`}
-                >
+                                    className={`text-lg px-3 py-2 rounded-md ${
+                                      pathname === item.href ? "text-primary" : "text-gray-500"
+                                    } hover:text-primary`}                >
                   {item.name}
                 </Link>
               ))}
