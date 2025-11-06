@@ -1,13 +1,13 @@
-import HeroBanner from '@/components/HeroBanner';
-import { products } from '@/data/products';
-import ProductCard from '@/components/ProductCard';
-import Link from 'next/link';
-import { testimonials } from '@/data/testimonials';
+import HeroBanner from "@/components/HeroBanner";
+import { products } from "@/data/products";
+import ProductCard from "@/components/ProductCard";
+import Link from "next/link";
+import { testimonials } from "@/data/testimonials";
 
 export default function Home() {
   const totalProducts = products.length;
-  const productCategories = [...new Set(products.map(p => p.category))];
-  const totalSales = "NPR 500,000"; // Dummy value
+  const productCategories = [...new Set(products.map((p) => p.category))];
+  const totalSales = "NPR 0"; // Dummy value
 
   const featuredProducts = products.filter((product) => product.featured);
 
@@ -23,14 +23,18 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Story</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We craft delicious pickles using only the best natural ingredients. Each jar is packed with authentic flavors, bringing a delightful taste experience to your table.
+            We craft delicious pickles using only the best natural ingredients.
+            Each jar is packed with authentic flavors, bringing a delightful
+            taste experience to your table.
           </p>
         </div>
       </section>
 
       <section className="py-12 w-full">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-gray-800 text-center mb-8">Featured Products</h2>
+          <h2 className="text-4xl font-bold text-gray-800 text-center mb-8">
+            Featured Products
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
@@ -48,12 +52,21 @@ export default function Home() {
 
       <section className="py-12 w-full bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-8">What Our Customers Say</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-8">
+            What Our Customers Say
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="p-6 rounded-lg shadow-md bg-white">
-                <p className="text-lg text-gray-700 mb-4">"{testimonial.quote}"</p>
-                <p className="font-bold text-gray-800">- {testimonial.author}</p>
+              <div
+                key={testimonial.id}
+                className="p-6 rounded-lg shadow-md bg-white"
+              >
+                <p className="text-lg text-gray-700 mb-4">
+                  "{testimonial.quote}"
+                </p>
+                <p className="font-bold text-gray-800">
+                  - {testimonial.author}
+                </p>
               </div>
             ))}
           </div>
@@ -65,11 +78,15 @@ export default function Home() {
           <h2 className="text-4xl font-bold text-gray-800 mb-8">Our Numbers</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6 rounded-lg shadow-md bg-gray-50">
-              <h3 className="text-2xl font-bold text-gray-800">{totalProducts}</h3>
+              <h3 className="text-2xl font-bold text-gray-800">
+                {totalProducts}
+              </h3>
               <p className="text-gray-600">Products</p>
             </div>
             <div className="p-6 rounded-lg shadow-md bg-gray-50">
-              <h3 className="text-2xl font-bold text-gray-800">{productCategories.length}</h3>
+              <h3 className="text-2xl font-bold text-gray-800">
+                {productCategories.length}
+              </h3>
               <p className="text-gray-600">Categories</p>
             </div>
             <div className="p-6 rounded-lg shadow-md bg-gray-50">
