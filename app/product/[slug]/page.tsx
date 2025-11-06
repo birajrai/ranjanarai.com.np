@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React from 'react';
 import { products } from '@/data/products';
 import { notFound } from 'next/navigation';
 
@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const { slug } = use(params);
+  const { slug } = await params;
   const product = products.find((p) => p.slug === slug);
 
   if (!product) {
