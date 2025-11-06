@@ -18,6 +18,12 @@ const navItems = [
   { name: "Contact", href: "/contact" },
 ];
 
+const mobileNavItems = [
+  { name: "Home", href: "/" },
+  { name: "Products", href: "/products" },
+  { name: "Contact", href: "/contact" },
+];
+
   const getIconForNavItem = (name: string) => {
     switch (name) {
       case "Home":
@@ -89,7 +95,7 @@ export default function RootLayout({
         {isMenuOpen && (
           <div className="fixed bottom-0 left-0 w-full bg-white shadow-lg p-4 md:hidden z-50">
             <div className="flex justify-around">
-              {navItems.map((item) => (
+              {mobileNavItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
