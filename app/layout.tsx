@@ -71,7 +71,8 @@ export default function RootLayout({
                 className="h-16 w-auto"
               />
             </Link>
-            <div className="hidden md:flex space-x-4">
+            {/* Desktop navigation links - visible on md and up, or when isMenuOpen is true on mobile */} 
+            <div className={`md:flex space-x-4 ${isMenuOpen ? 'flex' : 'hidden'} md:block`}>
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -83,6 +84,7 @@ export default function RootLayout({
                 </Link>
               ))}
             </div>
+            {/* Mobile menu button - visible only on mobile */} 
             <div className="md:hidden">
               <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-800 focus:outline-none">
                 <i className="fas fa-bars fa-lg"></i>
@@ -92,8 +94,8 @@ export default function RootLayout({
         </nav>
         {children}
         <Footer />
-        {isMenuOpen && (
-          <div className="fixed bottom-0 left-0 w-full bg-white shadow-lg p-4 md:hidden z-50">
+        {/* Mobile bottom navigation - always visible on mobile */}
+        <div className="fixed bottom-0 left-0 w-full bg-white shadow-lg p-4 md:hidden z-50">
             <div className="flex justify-around">
               {mobileNavItems.map((item) => (
                 <Link
@@ -110,7 +112,6 @@ export default function RootLayout({
               ))}
             </div>
           </div>
-        )}
       </body>
     </html>
   );
