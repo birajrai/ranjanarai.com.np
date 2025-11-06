@@ -12,6 +12,7 @@ export interface Product {
   category: string;
   gallery: string[];
   featured: boolean;
+  ingredients: string[];
 }
 
 export const products: Product[] = [
@@ -33,6 +34,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Buff+Pickle+2",
       "https://placehold.co/600x400?text=Buff+Pickle+3",
     ],
+    ingredients: ["sukuti", "mustard oil", "chili", "spices"],
   },
   {
     id: 2,
@@ -52,6 +54,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Chicken+Pickle+2",
       "https://placehold.co/600x400?text=Chicken+Pickle+3",
     ],
+    ingredients: ["chicken", "mustard oil", "chili", "spices"],
   },
   {
     id: 3,
@@ -71,6 +74,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Aam+ko+Achar+2",
       "https://placehold.co/600x400?text=Aam+ko+Achar+3",
     ],
+    ingredients: ["green mango", "mustard oil", "chili", "fenugreek"],
   },
   {
     id: 4,
@@ -90,6 +94,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Lasun+ko+Achar+2",
       "https://placehold.co/600x400?text=Lasun+ko+Achar+3",
     ],
+    ingredients: ["garlic", "mustard oil", "chili", "spices"],
   },
   {
     id: 5,
@@ -109,6 +114,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Tareko+Khursani+Achar+2",
       "https://placehold.co/600x400?text=Tareko+Khursani+Achar+3",
     ],
+    ingredients: ["green chili", "salt", "sugar", "vinegar"],
   },
   {
     id: 6,
@@ -128,6 +134,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Akabare+Khursani+Achar+2",
       "https://placehold.co/600x400?text=Akabare+Khursani+Achar+3",
     ],
+    ingredients: ["akabare chili", "garlic", "ginger", "vinegar"],
   },
   {
     id: 7,
@@ -147,6 +154,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Golbheda+ko+Achar+2",
       "https://placehold.co/600x400?text=Golbheda+ko+Achar+3",
     ],
+    ingredients: ["tomato", "mustard oil", "turmeric", "timur"],
   },
   {
     id: 8,
@@ -166,6 +174,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Mula+ko+Achar+2",
       "https://placehold.co/600x400?text=Mula+ko+Achar+3",
     ],
+    ingredients: ["radish", "turmeric", "chili", "mustard oil"],
   },
   {
     id: 9,
@@ -185,6 +194,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Lapsi+ko+Achar+2",
       "https://placehold.co/600x400?text=Lapsi+ko+Achar+3",
     ],
+    ingredients: ["hog-plum", "chili", "sugar", "mustard oil"],
   },
   {
     id: 10,
@@ -204,6 +214,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Tama+ko+Achar+2",
       "https://placehold.co/600x400?text=Tama+ko+Achar+3",
     ],
+    ingredients: ["bamboo shoot", "mustard oil", "spices"],
   },
   {
     id: 11,
@@ -223,6 +234,7 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Gundruk+ko+Achar+2",
       "https://placehold.co/600x400?text=Gundruk+ko+Achar+3",
     ],
+    ingredients: ["fermented leafy greens", "spices", "mustard oil"],
   },
   {
     id: 12,
@@ -242,5 +254,6 @@ export const products: Product[] = [
       "https://placehold.co/600x400?text=Aloo+ko+Achar+2",
       "https://placehold.co/600x400?text=Aloo+ko+Achar+3",
     ],
+    ingredients: ["potato", "mustard oil", "fenugreek", "chili", "sesame", "lemon"],
   },
 ];
