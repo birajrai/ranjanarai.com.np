@@ -26,7 +26,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={roboto.className}>
-      <body>
+      <body className="bg-gray-50">
         <nav className="bg-white p-4">
           <div className="container mx-auto flex justify-between items-center">
             <Link
