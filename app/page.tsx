@@ -4,7 +4,7 @@ import ProductCard from "@/components/ProductCard";
 import dynamic from 'next/dynamic';
 import Link from "next/link";
 
-const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"), { ssr: false });
+const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"));
 
 export default function Home() {
   const totalProducts = products.length;
