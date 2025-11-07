@@ -23,7 +23,7 @@ export default function AboutPage() {
             </div>
             <div className="md:w-2/3">
               <p className="text-lg text-gray-600 leading-relaxed mt-4 md:mt-0">
-                Ranjana Rai, the heart and soul behind Ranjana Achar Udhyog, started this journey from her home kitchen. With a deep-rooted passion for cooking and a love for the traditional flavors of Nepal, she perfected her family's pickle recipes over the years. What started as a hobby, sharing her delicious creations with friends and family, soon blossomed into a business as demand for her pickles grew. Today, Ranjana personally oversees the entire pickle-making process, ensuring that every jar is filled with love, tradition, and the highest quality ingredients.
+                Ranjana Rai, the heart and soul behind Ranjana Achar Udhyog, started this journey from her home kitchen. With a deep-rooted passion for cooking and a love for the traditional flavors of Nepal, she perfected her family&apos;s pickle recipes over the years. What started as a hobby, sharing her delicious creations with friends and family, soon blossomed into a business as demand for her pickles grew. Today, Ranjana personally oversees the entire pickle-making process, ensuring that every jar is filled with love, tradition, and the highest quality ingredients.
               </p>
             </div>
           </div>
@@ -31,7 +31,7 @@ export default function AboutPage() {
         <section>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Our Ingredients</h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            We believe that the best pickles start with the best ingredients. That's why we partner with local farmers in Nepal to source the freshest vegetables and spices. Our pickles are free from artificial preservatives and additives, so you can enjoy the pure, natural taste of our ingredients. From the crispness of the vegetables to the tang of the spices, every bite is a testament to our commitment to quality.
+            We believe that the best pickles start with the best ingredients. That&apos;s why we partner with local farmers in Nepal to source the freshest vegetables and spices. Our pickles are free from artificial preservatives and additives, so you can enjoy the pure, natural taste of our ingredients. From the crispness of the vegetables to the tang of the spices, every bite is a testament to our commitment to quality.
           </p>
         </section>
       </div>
