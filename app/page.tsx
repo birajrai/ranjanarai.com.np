@@ -1,8 +1,10 @@
 import HeroBanner from "@/components/HeroBanner";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
+import dynamic from 'next/dynamic';
 import Link from "next/link";
-import { testimonials } from "@/data/testimonials";
+
+const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"), { ssr: false });
 
 export default function Home() {
   const totalProducts = products.length;
@@ -48,28 +50,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 w-full bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-8">
-            What Our Customers Say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="p-6 rounded-lg shadow-md bg-white"
-              >
-                <p className="text-lg text-gray-700 mb-4">
-                  &quot;{testimonial.quote}&quot;
-                </p>
-                <p className="font-bold text-gray-800">
-                  - {testimonial.author}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsSection />
 
       <section className="py-12 w-full bg-white">
         <div className="container mx-auto px-4 text-center">
