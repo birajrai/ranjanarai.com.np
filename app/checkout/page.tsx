@@ -12,25 +12,56 @@ export default function CheckoutPage() {
 
   const [formData, setFormData] = useState({
     fullName: '',
-    email: '',
-    address: '',
-    city: '',
-    postalCode: '',
-    country: '',
+    email: '', // Now optional
+    phoneNumber: '', // New required field
+    location: {
+      latitude: null as number | null,
+      longitude: null as number | null,
+      address: '' as string | null, // Human-readable address from reverse geocoding
+    },
   });
 
   const [errors, setErrors] = useState({
     fullName: '',
     email: '',
-    address: '',
-    city: '',
-    postalCode: '',
-    country: '',
+    phoneNumber: '',
+    location: '',
   });
+
+  const [locationLoading, setLocationLoading] = useState(false);
+  const [locationError, setLocationError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: '' });
+  };
+
+  const handleLocationShare = () => {
+    if (navigator.geolocation) {
+      setLocationLoading(true);
+      setLocationError('');
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          // For simplicity, we'll just store coordinates.
+          // In a real app, you'd use a reverse geocoding API here.
+          const address = `Lat: ${latitude.toFixed(4)}, Lon: ${longitude.toFixed(4)}`;
+          setFormData((prev) => ({
+            ...prev,
+            location: { latitude, longitude, address },
+          }));
+          setLocationLoading(false);
+        },
+        (error) => {
+          console.error('Geolocation error:', error);
+          setLocationError('Unable to retrieve your location. Please enable location services and try again.');
+          setLocationLoading(false);
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      );
+    } else {
+      setLocationError('Geolocation is not supported by your browser.');
+    }
   };
 
   const validateForm = () => {
@@ -41,27 +72,19 @@ export default function CheckoutPage() {
       newErrors.fullName = 'Full Name is required.';
       isValid = false;
     }
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required.';
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    if (formData.email.trim() && !/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email address is invalid.';
       isValid = false;
     }
-    if (!formData.address.trim()) {
-      newErrors.address = 'Address is required.';
+    if (!formData.phoneNumber.trim()) {
+      newErrors.phoneNumber = 'Phone Number is required.';
+      isValid = false;
+    } else if (!/^\d{10,}$/.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = 'Phone Number is invalid (min 10 digits).';
       isValid = false;
     }
-    if (!formData.city.trim()) {
-      newErrors.city = 'City is required.';
-      isValid = false;
-    }
-    if (!formData.postalCode.trim()) {
-      newErrors.postalCode = 'Postal Code is required.';
-      isValid = false;
-    }
-    if (!formData.country.trim()) {
-      newErrors.country = 'Country is required.';
+    if (formData.location.latitude === null || formData.location.longitude === null) {
+      newErrors.location = 'Location is required. Please share your location.';
       isValid = false;
     }
 
@@ -69,14 +92,31 @@ export default function CheckoutPage() {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
-      // Simulate order placement
-      console.log('Order placed:', formData, cart);
-      alert('Your order has been placed successfully!');
-      clearCart();
-      router.push('/'); // Redirect to home page after successful order
+      try {
+        const response = await fetch('/api/order', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ formData, cart }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert(data.message);
+          clearCart();
+          router.push('/');
+        } else {
+          alert(`Error: ${data.message}`);
+        }
+      } catch (error) {
+        console.error('Error submitting order:', error);
+        alert('An unexpected error occurred. Please try again.');
+      }
     } else {
       console.log('Form has validation errors.');
     }
@@ -119,7 +159,7 @@ export default function CheckoutPage() {
               {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
             </div>
             <div>
-              <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email:</label>
+              <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email (Optional):</label>
               <input
                 type="email"
                 id="email"
@@ -133,62 +173,36 @@ export default function CheckoutPage() {
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
             <div>
-              <label htmlFor="address" className="block text-lg font-medium text-gray-700">Address:</label>
+              <label htmlFor="phoneNumber" className="block text-lg font-medium text-gray-700">Phone Number:</label>
               <input
-                type="text"
-                id="address"
-                name="address"
-                value={formData.address}
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                value={formData.phoneNumber}
                 onChange={handleChange}
                 className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none ${
-                  errors.address ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-primary focus:border-primary'
+                  errors.phoneNumber ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-primary focus:border-primary'
                 }`}
               />
-              {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="city" className="block text-lg font-medium text-gray-700">City:</label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                  className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none ${
-                    errors.city ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-primary focus:border-primary'
-                  }`}
-                />
-                {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
-              </div>
-              <div>
-                <label htmlFor="postalCode" className="block text-lg font-medium text-gray-700">Postal Code:</label>
-                <input
-                  type="text"
-                  id="postalCode"
-                  name="postalCode"
-                  value={formData.postalCode}
-                  onChange={handleChange}
-                  className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none ${
-                    errors.postalCode ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-primary focus:border-primary'
-                  }`}
-                />
-                {errors.postalCode && <p className="text-red-500 text-sm mt-1">{errors.postalCode}</p>}
-              </div>
+              {errors.phoneNumber && <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>}
             </div>
             <div>
-              <label htmlFor="country" className="block text-lg font-medium text-gray-700">Country:</label>
-              <input
-                type="text"
-                id="country"
-                name="country"
-                value={formData.country}
-                onChange={handleChange}
-                className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none ${
-                  errors.country ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-primary focus:border-primary'
-                }`}
-              />
-              {errors.country && <p className="text-red-500 text-sm mt-1">{errors.country}</p>}
+              <label className="block text-lg font-medium text-gray-700">Delivery Location:</label>
+              <button
+                type="button"
+                onClick={handleLocationShare}
+                disabled={locationLoading}
+                className="mt-1 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-sm transition duration-300 ease-in-out"
+              >
+                {locationLoading ? 'Getting Location...' : 'Share My Current Location'}
+              </button>
+              {formData.location.address && (
+                <p className="mt-2 text-gray-700">
+                  Location: {formData.location.address}
+                </p>
+              )}
+              {locationError && <p className="text-red-500 text-sm mt-1">{locationError}</p>}
+              {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location}</p>}
             </div>
             <button
               type="submit"
