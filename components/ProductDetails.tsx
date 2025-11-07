@@ -1,14 +1,18 @@
 'use client';
 
 import { Product } from '@/data/products';
+import { useCart } from '@/context/CartContext';
 
 interface ProductDetailsProps {
   product: Product;
 }
 
 export default function ProductDetails({ product }: ProductDetailsProps) {
+  const { addToCart } = useCart();
+
   const handleAddToCart = () => {
-    console.log(`Product added to cart: ${product.name}`);
+    addToCart(product);
+    alert(`${product.name} added to cart!`);
   };
 
   const handleAddToWishlist = () => {
