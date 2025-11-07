@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import CartIcon from "./CartIcon";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -19,6 +21,7 @@ const mobileNavItems = [
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -42,26 +45,54 @@ export default function Navbar() {
         {/* Desktop navigation links - visible on md and up, or when isMenuOpen is true on mobile */}
         <div className="hidden md:flex space-x-4">
           {navItems.map((item) => (
-            <Link key={item.name} href={item.href} className={`text-lg px-3 py-2 rounded-md`}>
+            <Link
+              key={item.name}
+              href={item.href}
+              className={`text-lg px-3 py-2 rounded-md ${
+                pathname === item.href ? "bg-primary text-white" : "text-gray-800 hover:bg-gray-100"
+              }`}
+            >
               {item.name}
             </Link>
           ))}
+          <CartIcon />
         </div>
         {/* Mobile menu button - visible only on mobile */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center space-x-4">
+          <CartIcon />
           <button onClick={toggleMenu} className="text-gray-800 focus:outline-none">
             <i className="fas fa-bars fa-lg"></i>
           </button>
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden mt-4">
+        <div className="md:hidden mt-4 transition-all duration-300 ease-in-out overflow-hidden max-h-screen">
           <div className="flex flex-col space-y-2">
             {mobileNavItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-lg px-3 py-2 rounded-md text-center"
+                className={`text-lg px-3 py-2 rounded-md text-center ${
+                  pathname === item.href ? "bg-primary text-white" : "text-gray-800 hover:bg-gray-100"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+      {!isMenuOpen && (
+        <div className="md:hidden mt-4 transition-all duration-300 ease-in-out overflow-hidden max-h-0">
+          <div className="flex flex-col space-y-2">
+            {mobileNavItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`text-lg px-3 py-2 rounded-md text-center ${
+                  pathname === item.href ? "bg-primary text-white" : "text-gray-800 hover:bg-gray-100"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
