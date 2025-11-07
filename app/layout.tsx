@@ -12,6 +12,8 @@ const roboto = Roboto({
   display: "swap",
 });
 
+import { CartProvider } from "@/context/CartContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,9 +31,11 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-gray-50">
-        <Navbar /> {/* Use the Navbar component */}
-        {children}
-        <Footer />
+        <CartProvider>
+          <Navbar /> {/* Use the Navbar component */}
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
