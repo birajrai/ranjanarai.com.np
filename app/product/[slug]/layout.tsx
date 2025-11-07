@@ -2,11 +2,12 @@ import { productMetadata } from '../../../app/metadata';
 import { products } from '@/data/products';
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props) {
-  const product = products.find((p) => p.id === Number(params.slug));
+  const { slug } = await params;
+  const product = products.find((p) => p.id === Number(slug));
   if (!product) {
     return {};
   }
