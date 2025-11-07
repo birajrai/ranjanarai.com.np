@@ -45,6 +45,31 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div className="container mx-auto p-8 bg-white rounded-lg shadow-lg mt-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": product.name,
+            "image": product.image,
+            "description": product.description,
+            "sku": product.id,
+            "brand": {
+              "@type": "Brand",
+              "name": "Ranjana Achar Udhyog"
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": `https://ranjanaarai.com/product/${product.slug}`,
+              "priceCurrency": "NPR",
+              "price": product.discount ? (product.price - (product.price * product.discount) / 100).toFixed(2) : product.price.toFixed(2),
+              "itemCondition": "https://schema.org/NewCondition",
+              "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+            }
+          })
+        }}
+      />
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/2">
           <Image
