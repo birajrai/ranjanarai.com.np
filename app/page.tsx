@@ -22,11 +22,16 @@ export default function Home() {
       />
 
       <section className="py-12 bg-gray-50 w-full">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Story</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Welcome to Ranjana Achar Udhyog, where every jar tells a story of tradition and passion. Founded by Ranjana Rai, we craft delicious pickles using only the best natural ingredients and time-honored recipes. Each jar is packed with authentic flavors, bringing a delightful taste experience from our home to your table. <Link href="/about" className="text-primary hover:underline">Learn more about our journey</Link>.
-          </p>
+        <div className="container mx-auto px-4 text-center md:flex md:items-center md:space-x-8">
+          <div className="md:w-1/2">
+            <Image src="/mockup/jar.png" alt="Ranjana Achar Udhyog Jar" width={400} height={400} className="rounded-lg shadow-md mx-auto" />
+          </div>
+          <div className="md:w-1/2 text-left">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Story</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Welcome to Ranjana Achar Udhyog, where every jar is filled with tradition and passion. Founded by Ranjana Rai, we craft delicious pickles using natural ingredients and time-honored recipes. Experience authentic flavors from our home to your table. <Link href="/about" className="text-primary hover:underline">Learn more about our journey</Link>.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -56,21 +61,24 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-8">Our Numbers</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-lg shadow-md bg-gray-50">
-              <h3 className="text-2xl font-bold text-gray-800">
+            <div className="p-6 rounded-lg shadow-md bg-gray-50 flex flex-col items-center justify-center">
+              <i className="fas fa-boxes fa-3x text-primary mb-4"></i>
+              <h3 className="text-4xl font-bold text-gray-800 mb-2">
                 {totalProducts}
               </h3>
-              <p className="text-gray-600">Products</p>
+              <p className="text-gray-600 text-lg">Products</p>
             </div>
-            <div className="p-6 rounded-lg shadow-md bg-gray-50">
-              <h3 className="text-2xl font-bold text-gray-800">
+            <div className="p-6 rounded-lg shadow-md bg-gray-50 flex flex-col items-center justify-center">
+              <i className="fas fa-tags fa-3x text-primary mb-4"></i>
+              <h3 className="text-4xl font-bold text-gray-800 mb-2">
                 {productCategories.length}
               </h3>
-              <p className="text-gray-600">Categories</p>
+              <p className="text-gray-600 text-lg">Categories</p>
             </div>
-            <div className="p-6 rounded-lg shadow-md bg-gray-50">
-              <h3 className="text-2xl font-bold text-gray-800">{totalSales}</h3>
-              <p className="text-gray-600">Total Sales</p>
+            <div className="p-6 rounded-lg shadow-md bg-gray-50 flex flex-col items-center justify-center">
+              <i className="fas fa-hand-holding-dollar fa-3x text-primary mb-4"></i>
+              <h3 className="text-4xl font-bold text-gray-800 mb-2">{totalSales}</h3>
+              <p className="text-gray-600 text-lg">Total Sales</p>
             </div>
           </div>
         </div>
