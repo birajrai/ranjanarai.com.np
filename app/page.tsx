@@ -3,6 +3,7 @@ import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import dynamic from 'next/dynamic';
 import Link from "next/link";
+import Image from "next/image";
 
 const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"));
 
