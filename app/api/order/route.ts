@@ -10,11 +10,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Invalid order data' }, { status: 400 });
     }
 
+    // Validate environment variables
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.OWNER_EMAIL || !process.env.EMAIL_PRIMARY) {
+      return NextResponse.json({ message: 'Email service environment variables are not configured.' }, { status: 500 });
+    }
+
     // Configure Nodemailer transporter
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: 587,
-      secure: false, // Use 'true' if your email service uses SSL/TLS
+      service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -27,7 +30,7 @@ export async function POST(request: Request) {
     // Prepare email for buyer
     const buyerMailOptions = {
       from: process.env.EMAIL_USER,
-      to: formData.email, // Send only if email is provided
+      bcc: process.env.EMAIL_PRIMARY, // Send a copy to the primary email address
       subject: 'Your Order Confirmation - Ranjana Achar Udhyog',
       html: `
         <h1>Thank you for your order, ${formData.fullName}!</h1>
@@ -43,6 +46,10 @@ export async function POST(request: Request) {
         <p>Ranjana Achar Udhyog</p>
       `,
     };
+
+    if (formData.email) {
+      buyerMailOptions.to = formData.email;
+    }
 
     // Prepare email for owner
     const ownerMailOptions = {
