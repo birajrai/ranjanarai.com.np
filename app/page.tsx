@@ -15,17 +15,15 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <HeroBanner
         imageUrl="/mockup/pouch_packaging.png"
-        title="Taste the Tradition, Savor the Flavor"
-        altText="Assortment of homemade pickles"
+        title="Ranjana Achar Udhyog: Taste the Tradition, Savor the Flavor"
+        altText="Ranjana Arai's Pickles Banner Image"
       />
 
       <section className="py-12 bg-gray-50 w-full">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Story</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We craft delicious pickles using only the best natural ingredients.
-            Each jar is packed with authentic flavors, bringing a delightful
-            taste experience to your table.
+            Welcome to Ranjana Achar Udhyog, where every jar tells a story of tradition and passion. Founded by Ranjana Rai, we craft delicious pickles using only the best natural ingredients and time-honored recipes. Each jar is packed with authentic flavors, bringing a delightful taste experience from our home to your table. <Link href="/about" className="text-primary hover:underline">Learn more about our journey</Link>.
           </p>
         </div>
       </section>
@@ -62,7 +60,7 @@ export default function Home() {
                 className="p-6 rounded-lg shadow-md bg-white"
               >
                 <p className="text-lg text-gray-700 mb-4">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
                 <p className="font-bold text-gray-800">
                   - {testimonial.author}

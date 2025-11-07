@@ -1,20 +1,21 @@
-"use client";
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { products } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
+import { productsMetadata } from '../metadata';
 
 export default function ProductsPage() {
-  const [searchQuery, setSearchQuery] = React.useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredProducts = products.filter((product) => {
-    const query = searchQuery.toLowerCase();
-    return (
-      product.name.toLowerCase().includes(query) ||
-      product.ingredients.some((ingredient) =>
-        ingredient.toLowerCase().includes(query)
-      )
-    );
-  });
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    product.ingredients.join(', ').toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <main className="flex min-h-screen flex-col items-center p-6">
@@ -24,7 +25,7 @@ export default function ProductsPage() {
           type="text"
           placeholder="Search by name or ingredients..."
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={handleSearchChange}
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
         />
       </div>

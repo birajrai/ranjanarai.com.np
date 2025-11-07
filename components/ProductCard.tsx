@@ -1,4 +1,7 @@
+'use client';
+
 import React from "react";
+import Image from "next/image";
 import { Product } from "@/data/products";
 import Link from "next/link";
 
@@ -17,7 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         key={product.id}
         className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
       >
-        <img
+        <Image
           src={product.image}
           alt={product.name}
           width={256}
