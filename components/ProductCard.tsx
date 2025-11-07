@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <Link href={`/product/${product.slug}`}>
       <div
         key={product.id}
-        className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+        className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transform transition-transform duration-300 hover:scale-105"
       >
         <Image
           src={product.image}
