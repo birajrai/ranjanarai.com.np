@@ -30,6 +30,7 @@ export default function CheckoutPage() {
 
   const [locationLoading, setLocationLoading] = useState(false);
   const [locationError, setLocationError] = useState('');
+  const [mapUrl, setMapUrl] = useState(''); // New state for map URL
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -43,24 +44,27 @@ export default function CheckoutPage() {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude } = position.coords;
-          // For simplicity, we'll just store coordinates.
-          // In a real app, you'd use a reverse geocoding API here.
           const address = `Lat: ${latitude.toFixed(4)}, Lon: ${longitude.toFixed(4)}`;
           setFormData((prev) => ({
             ...prev,
             location: { latitude, longitude, address },
           }));
+          // Construct OpenStreetMap iframe URL
+          const osmUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${longitude - 0.01},${latitude - 0.01},${longitude + 0.01},${latitude + 0.01}&layer=mapnik&marker=${latitude},${longitude}`;
+          setMapUrl(osmUrl);
           setLocationLoading(false);
         },
         (error) => {
           console.error('Geolocation error:', error);
           setLocationError('Unable to retrieve your location. Please enable location services and try again.');
           setLocationLoading(false);
+          setMapUrl(''); // Clear map if location fails
         },
         { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
       );
     } else {
       setLocationError('Geolocation is not supported by your browser.');
+      setMapUrl(''); // Clear map if geolocation not supported
     }
   };
 
@@ -107,9 +111,11 @@ export default function CheckoutPage() {
         const data = await response.json();
 
         if (response.ok) {
+          const transactionId = `ORD-${Date.now()}-${Math.floor(Math.random() * 1000)}`; // Dummy transaction ID
+          const totalPrice = getTotalPrice().toFixed(2);
           alert(data.message);
           clearCart();
-          router.push('/');
+          router.push(`/order-confirmation?transactionId=${transactionId}&totalPrice=${totalPrice}`);
         } else {
           alert(`Error: ${data.message}`);
         }
@@ -204,6 +210,20 @@ export default function CheckoutPage() {
               {locationError && <p className="text-red-500 text-sm mt-1">{locationError}</p>}
               {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location}</p>}
             </div>
+            {mapUrl && (
+              <div className="w-full h-64 mt-4 rounded-lg overflow-hidden shadow-md">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  scrolling="no"
+                  marginHeight={0}
+                  marginWidth={0}
+                  src={mapUrl}
+                  title="Delivery Location Map"
+                ></iframe>
+              </div>
+            )}
             <button
               type="submit"
               className="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition duration-300 ease-in-out transform hover:scale-105 mt-6"
