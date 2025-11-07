@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { products } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
-import { productsMetadata } from '../metadata';
+
 
 export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState('');
