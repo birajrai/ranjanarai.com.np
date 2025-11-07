@@ -92,7 +92,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               alt={`${product.name} gallery image ${index + 1}`}
               width={150}
               height={150}
-              className="rounded-lg shadow-md"
+              className="rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105"
             />
           ))}
         </div>
