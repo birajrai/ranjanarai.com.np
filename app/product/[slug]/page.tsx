@@ -65,7 +65,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               "priceCurrency": "NPR",
               "price": product.discount ? (product.price - (product.price * product.discount) / 100).toFixed(2) : product.price.toFixed(2),
               "itemCondition": "https://schema.org/NewCondition",
-              "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+              "availability": Number(product.stock) > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
             }
           })
         }}
