@@ -54,7 +54,7 @@ export default function Navbar() {
         <Link
           href="/"
           className={`text-2xl font-bold flex items-center transition-all duration-300 ${
-            isScrolled ? "text-black" : "text-[#444444]"
+            isScrolled ? "text-black" : "text-black"
           }`}
         >
           <Image
@@ -72,7 +72,9 @@ export default function Navbar() {
               href={item.href}
               className={`text-xl font-semibold px-3 py-2 rounded-md transition-colors duration-300 ${
                 pathname === item.href
-                  ? "text-[#EF4141]"
+                  ? isScrolled
+                    ? "text-[#EF4141]"
+                    : "text-[#EF4141] bg-[#FFFFFF]"
                   : isScrolled
                   ? "text-[#444444] hover:bg-gray-100"
                   : "text-[#444444] hover:bg-gray-100"
@@ -111,7 +113,7 @@ export default function Navbar() {
               href={item.href}
               className={`text-xl font-semibold px-3 py-2 rounded-md text-center ${
                 pathname === item.href
-                  ? "text-[#EF4141]"
+                  ? "text-[#EF4141] bg-[#FFFFFF]"
                   : "text-[#444444] hover:bg-gray-100"
               }`}
               onClick={() => setIsMenuOpen(false)}
