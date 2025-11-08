@@ -47,7 +47,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#FFFFFF] shadow-md py-4 backdrop-blur-md bg-opacity-50" : "bg-transparent bg-opacity-10 backdrop-blur-sm py-6"
+        isScrolled ? "bg-[#FFFFFF] shadow-md py-2 backdrop-blur-md bg-opacity-50" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center">
@@ -60,17 +60,17 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="Ranjana Arai's Pickles Logo"
-            width={isScrolled ? 48 : 64}
-            height={isScrolled ? 48 : 64}
+            width={isScrolled ? 40 : 56}
+            height={isScrolled ? 40 : 56}
             className="h-auto w-auto"
           />
         </Link>
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-3">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`text-xl font-semibold px-3 py-2 rounded-md transition-colors duration-300 ${
+              className={`text-lg font-semibold px-2 py-1 rounded-md transition-colors duration-300 ${
                 pathname === item.href
                   ? isScrolled
                     ? "text-[#EF4141]"
@@ -89,7 +89,7 @@ export default function Navbar() {
           <CartIcon isScrolled={isScrolled} />
         </div>
         {/* Mobile menu button - visible only on mobile */}
-        <div className="md:hidden flex items-center space-x-4">
+        <div className="md:hidden flex items-center space-x-3">
           <CartIcon isScrolled={isScrolled} />
           <button
             onClick={toggleMenu}
@@ -111,7 +111,7 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-xl font-semibold px-3 py-2 rounded-md text-center ${
+              className={`text-lg font-semibold px-2 py-1 rounded-md text-center ${
                 pathname === item.href
                   ? "text-[#EF4141]"
                   : "text-[#444444] hover:bg-gray-100"
