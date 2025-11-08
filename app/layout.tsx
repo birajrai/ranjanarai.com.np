@@ -34,7 +34,7 @@ export default function RootLayout({
       <body className="bg-gray-50">
         <CartProvider>
           <Navbar /> {/* Use the Navbar component */}
-          <main className="min-h-screen">
+          <main>
             {children}
           </main>
           <Footer />
