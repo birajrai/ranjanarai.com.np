@@ -55,6 +55,11 @@ export default function ImageSlider() {
             layout="fill"
             objectFit="cover"
           />
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
+            <h1 className="text-5xl font-bold text-white mb-4">Ranjana Achar Udhyog</h1>
+            <p className="text-xl text-white max-w-2xl">Experience the authentic taste of homemade Nepali pickles, crafted with love and traditional recipes.</p>
+          </div>
         </motion.div>
       </AnimatePresence>
 

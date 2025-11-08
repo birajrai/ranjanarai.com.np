@@ -5,12 +5,14 @@ interface HeroBannerProps {
   imageUrl: string;
   title: string;
   altText: string;
+  description: string;
 }
 
 const HeroBanner: React.FC<HeroBannerProps> = ({
   imageUrl,
   title,
   altText,
+  description,
 }) => {
   return (
     <section
@@ -24,8 +26,9 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
         className="z-0"
       />
       <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <h1 className="text-[#FFFFFF] text-5xl font-bold text-center">{title}</h1>
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+        <h1 className="text-[#FFFFFF] text-5xl font-bold">{title}</h1>
+        <p className="text-[#FFFFFF] text-xl mt-4 max-w-2xl">{description}</p>
       </div>
     </section>
   );
