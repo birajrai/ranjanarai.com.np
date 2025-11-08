@@ -53,16 +53,16 @@ export default function Navbar() {
       <div className="container mx-auto flex justify-between items-center">
         <Link
           href="/"
-          className={`text-2xl font-bold flex items-center ${
+          className={`text-2xl font-bold flex items-center transition-all duration-300 ${
             isScrolled ? "text-black" : "text-[#FFFFFF]"
           }`}
         >
           <Image
             src="/logo.png"
             alt="Ranjana Arai's Pickles Logo"
-            width={64}
-            height={64}
-            className="h-16 w-auto"
+            width={isScrolled ? 48 : 64}
+            height={isScrolled ? 48 : 64}
+            className="h-auto w-auto"
           />
         </Link>
         <div className="hidden md:flex items-center space-x-4">
@@ -70,7 +70,7 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-lg px-3 py-2 rounded-md ${
+              className={`text-lg px-3 py-2 rounded-md transition-colors duration-300 ${
                 pathname === item.href
                   ? "bg-[#EF4141] text-[#FFFFFF]"
                   : isScrolled
@@ -102,7 +102,7 @@ export default function Navbar() {
       <div
         className={`md:hidden mt-4 transition-all duration-300 ease-in-out overflow-hidden ${
           isMenuOpen ? "max-h-screen" : "max-h-0"
-        } ${isScrolled ? "bg-[#FFFFFF]" : "bg-transparent"}`}
+        } bg-[#FFFFFF]`}
       >
         <div className="flex flex-col space-y-2">
           {mobileNavItems.map((item) => (
@@ -112,9 +112,7 @@ export default function Navbar() {
               className={`text-lg px-3 py-2 rounded-md text-center ${
                 pathname === item.href
                   ? "bg-[#EF4141] text-[#FFFFFF]"
-                  : isScrolled
-                  ? "text-[#EF4141] hover:bg-gray-100"
-                  : "text-[#FFFFFF] hover:bg-gray-100"
+                  : "text-[#EF4141] hover:bg-gray-100"
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
@@ -122,7 +120,7 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="flex justify-center py-2">
-            <CartIcon isScrolled={isScrolled} />
+            <CartIcon isScrolled={true} />
           </div>
         </div>
       </div>
