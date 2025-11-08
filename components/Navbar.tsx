@@ -72,7 +72,7 @@ export default function Navbar() {
               href={item.href}
               className={`text-xl font-semibold px-3 py-2 rounded-md transition-colors duration-300 ${
                 pathname === item.href
-                  ? "bg-[#EF4141] text-[#FFFFFF]"
+                  ? "text-[#EF4141]"
                   : isScrolled
                   ? "text-[#444444] hover:bg-gray-100"
                   : "text-[#444444] hover:bg-gray-100"
@@ -111,7 +111,7 @@ export default function Navbar() {
               href={item.href}
               className={`text-xl font-semibold px-3 py-2 rounded-md text-center ${
                 pathname === item.href
-                  ? "bg-[#EF4141] text-[#FFFFFF]"
+                  ? "text-[#EF4141]"
                   : "text-[#444444] hover:bg-gray-100"
               }`}
               onClick={() => setIsMenuOpen(false)}
