@@ -5,18 +5,18 @@ import { testimonials } from '@/data/testimonials';
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-12 w-full bg-gray-50">
+    <section className="py-20 w-full bg-[#F9FAFB]">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-8">
+        <h2 className="text-5xl font-bold text-[#EF4141] mb-12">
           What Our Customers Say
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="p-6 rounded-lg shadow-md bg-white"
+              className="p-8 rounded-lg shadow-lg bg-white"
             >
-              <p className="text-lg text-gray-700 mb-4">
+              <p className="text-lg text-gray-700 mb-6">
                 &quot;{testimonial.quote}&quot;
               </p>
               <p className="font-bold text-gray-800">

@@ -20,13 +20,14 @@ export default function Home() {
         altText="Ranjana Arai's Pickles Banner Image"
       />
 
-      <section className="py-12 bg-[#F9FAFB] w-full">
-        <div className="container mx-auto px-4 text-center md:flex md:items-center md:space-x-8">
+      <section className="py-20 bg-[#F9FAFB] w-full">
+        <div className="container mx-auto px-4 text-center md:flex md:items-center md:space-x-12">
           <div className="md:w-1/2">
-            <Image src="/mockup/jar.png" alt="Ranjana Achar Udhyog Jar" width={400} height={400} className="rounded-lg shadow-md mx-auto" />
+            <Image src="/mockup/jar.png" alt="Ranjana Achar Udhyog Jar" width={400} height={400} className="rounded-lg shadow-lg mx-auto" />
           </div>
           <div className="md:w-1/2 text-left">
-            <h2 className="text-4xl font-bold text-[#EF4141] mb-6">Our Story</h2>
+            <h2 className="text-5xl font-bold text-[#EF4141] mb-4">Our Story</h2>
+            <p className="text-xl text-gray-500 mb-6">From our kitchen to your table.</p>
             <p className="text-lg text-gray-600 leading-relaxed">
               Welcome to Ranjana Achar Udhyog, where every jar is filled with tradition and passion. Founded by Ranjana Rai, we craft delicious pickles using natural ingredients and time-honored recipes. Experience authentic flavors from our home to your table. <Link href="/about" className="text-[#EF4141] hover:underline">Learn more about our journey</Link>.
             </p>
@@ -34,19 +35,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 w-full">
+      <section className="py-20 w-full">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-[#EF4141] text-center mb-8">
+          <h2 className="text-5xl font-bold text-[#EF4141] text-center mb-12">
             Featured Products
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link href="/products">
-              <button className="bg-[#EF4141] hover:bg-red-700 text-[#FFFFFF] font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105">
+              <button className="bg-[#EF4141] hover:bg-red-700 text-[#FFFFFF] font-bold py-4 px-10 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105">
                 View All Products
               </button>
             </Link>
