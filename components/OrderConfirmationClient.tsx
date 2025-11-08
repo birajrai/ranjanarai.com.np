@@ -16,10 +16,10 @@ export default function OrderConfirmationClient() {
   if (!transactionId || !totalPrice) {
     return (
       <main className="pt-24 flex min-h-screen flex-col items-center justify-center p-6 text-center">
-        <h1 className="text-4xl font-bold mb-4">Order Not Found</h1>
-        <p className="text-lg text-gray-600 mb-8">There was an issue retrieving your order details. Please contact support if you believe this is an error.</p>
+        <h1 className="text-5xl font-bold mb-4 text-[#EF4141]">Order Not Found</h1>
+        <p className="text-lg text-[#444444] mb-8">There was an issue retrieving your order details. Please contact support if you believe this is an error.</p>
         <Link href="/">
-          <button className="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105">
+          <button className="bg-[#EF4141] hover:bg-red-700 text-[#FFFFFF] font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105">
             Go to Home
           </button>
         </Link>
@@ -29,15 +29,15 @@ export default function OrderConfirmationClient() {
 
   return (
     <main className="pt-24 flex min-h-screen flex-col items-center justify-center p-6 bg-gray-50">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-8 text-center">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Order Placed Successfully!</h1>
-        <p className="text-lg text-gray-600 mb-6">Please complete your payment by scanning the QR code below.</p>
+      <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-10 text-center">
+        <h1 className="text-5xl font-bold text-[#EF4141] mb-6">Order Placed Successfully!</h1>
+        <p className="text-lg text-[#444444] mb-8">Please complete your payment by scanning the QR code below.</p>
 
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Payment Details</h2>
-          <p className="text-xl font-semibold text-gray-700 mb-2">Total Amount: NPR {parseFloat(totalPrice).toFixed(2)}</p>
-          <p className="text-xl font-semibold text-gray-700 mb-4">Transaction ID: <span className="text-primary">{transactionId}</span></p>
-          <p className="text-gray-600 mb-4">Please include this Transaction ID in your payment note for validation.</p>
+          <h2 className="text-3xl font-bold text-[#444444] mb-4">Payment Details</h2>
+          <p className="text-xl font-semibold text-[#444444] mb-2">Total Amount: NPR {parseFloat(totalPrice).toFixed(2)}</p>
+          <p className="text-xl font-semibold text-[#444444] mb-4">Transaction ID: <span className="text-[#EF4141]">{transactionId}</span></p>
+          <p className="text-[#444444] mb-4">Please include this Transaction ID in your payment note for validation.</p>
 
           <div className="flex justify-center mb-6">
             <Image
@@ -50,13 +50,13 @@ export default function OrderConfirmationClient() {
           </div>
 
           <div className="text-left inline-block">
-            <p className="text-lg text-gray-700"><strong>Bank:</strong> Citizen Bank Nepal</p>
-            <p className="text-lg text-gray-700"><strong>Account Holder:</strong> Ranjana Achar Udhyog</p>
+            <p className="text-lg text-[#444444]"><strong>Bank:</strong> Citizen Bank Nepal</p>
+            <p className="text-lg text-[#444444]"><strong>Account Holder:</strong> Ranjana Achar Udhyog</p>
           </div>
         </div>
 
-        <p className="text-gray-600 mt-8">Your order will be processed once payment is confirmed.</p>
-        <Link href="/" className="mt-6 inline-block bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105">
+        <p className="text-[#444444] mt-8">Your order will be processed once payment is confirmed.</p>
+        <Link href="/" className="mt-6 inline-block bg-[#EF4141] hover:bg-red-700 text-[#FFFFFF] font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105">
           Go to Home
         </Link>
       </div>

@@ -66,14 +66,14 @@ export default function ContactPage() {
 
   return (
     <main className="pt-24 flex min-h-screen flex-col items-center justify-center p-6 bg-gray-50">
-      <div className="w-full max-w-lg bg-white rounded-lg shadow-md p-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center">Contact Us</h1>
-        <p className="text-lg text-gray-600 mb-8 text-center">
+      <div className="w-full max-w-lg bg-white rounded-lg shadow-lg p-10">
+        <h1 className="text-5xl font-bold text-[#EF4141] mb-8 text-center">Contact Us</h1>
+        <p className="text-lg text-[#444444] mb-10 text-center">
           If you have any questions, feel free to reach out!
         </p>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-lg font-medium text-gray-700">Name:</label>
+            <label htmlFor="name" className="block text-lg font-medium text-[#444444]">Name:</label>
             <input
               type="text"
               id="name"
@@ -81,13 +81,13 @@ export default function ContactPage() {
               value={formData.name}
               onChange={handleChange}
               className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none ${
-                errors.name ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-primary focus:border-primary"
+                errors.name ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#EF4141] focus:border-[#EF4141]"
               }`}
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
           <div>
-            <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email:</label>
+            <label htmlFor="email" className="block text-lg font-medium text-[#444444]">Email:</label>
             <input
               type="email"
               id="email"
@@ -95,13 +95,13 @@ export default function ContactPage() {
               value={formData.email}
               onChange={handleChange}
               className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none ${
-                errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-primary focus:border-primary"
+                errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#EF4141] focus:border-[#EF4141]"
               }`}
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
           <div>
-            <label htmlFor="message" className="block text-lg font-medium text-gray-700">Message:</label>
+            <label htmlFor="message" className="block text-lg font-medium text-[#444444]">Message:</label>
             <textarea
               id="message"
               name="message"
@@ -109,7 +109,7 @@ export default function ContactPage() {
               onChange={handleChange}
               rows={4}
               className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none ${
-                errors.message ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-primary focus:border-primary"
+                errors.message ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-[#EF4141] focus:border-[#EF4141]"
               }`}
             ></textarea>
             {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
@@ -117,7 +117,7 @@ export default function ContactPage() {
           <div className="text-center">
             <button
               type="submit"
-              className="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105"
+              className="bg-[#EF4141] hover:bg-red-700 text-[#FFFFFF] font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105"
             >
               Submit
             </button>
