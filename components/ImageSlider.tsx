@@ -39,7 +39,7 @@ export default function ImageSlider() {
   }, [currentIndex]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-screen h-screen overflow-hidden">
       <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={currentIndex}
@@ -47,14 +47,13 @@ export default function ImageSlider() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full h-96 relative"
+          className="w-full h-full relative"
         >
           <Image
             src={images[currentIndex]}
             alt={`Slider image ${currentIndex + 1}`}
             layout="fill"
             objectFit="cover"
-            className="rounded-lg"
           />
         </motion.div>
       </AnimatePresence>
