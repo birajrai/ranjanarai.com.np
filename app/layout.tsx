@@ -31,7 +31,7 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </head>
-      <body className="bg-gray-50 pt-24">
+      <body className="bg-gray-50">
         <CartProvider>
           <Navbar /> {/* Use the Navbar component */}
           {children}
