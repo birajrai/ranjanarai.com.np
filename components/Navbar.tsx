@@ -42,25 +42,32 @@ export default function Navbar() {
             className="h-16 w-auto"
           />
         </Link>
-        {/* Desktop navigation links - visible on md and up, or when isMenuOpen is true on mobile */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden md:flex items-center space-x-4">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               className={`text-lg px-3 py-2 rounded-md ${
-                pathname === item.href ? "bg-primary text-white" : "text-gray-800 hover:bg-gray-100"
+                pathname === item.href
+                  ? "bg-primary text-white"
+                  : "text-gray-800 hover:bg-gray-100"
               }`}
             >
               {item.name}
             </Link>
           ))}
+        </div>
+        {/* Cart Icon - Placed outside of the mapping for consistent positioning */}
+        <div className="hidden md:flex items-center">
           <CartIcon />
         </div>
         {/* Mobile menu button - visible only on mobile */}
         <div className="md:hidden flex items-center space-x-4">
           <CartIcon />
-          <button onClick={toggleMenu} className="text-gray-800 focus:outline-none">
+          <button
+            onClick={toggleMenu}
+            className="text-gray-800 focus:outline-none"
+          >
             <i className="fas fa-bars fa-lg"></i>
           </button>
         </div>
