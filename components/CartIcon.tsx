@@ -4,7 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 
-export default function CartIcon() {
+interface CartIconProps {
+  isScrolled?: boolean;
+}
+
+export default function CartIcon({ isScrolled }: CartIconProps) {
   const { getTotalItems } = useCart();
   const [clientTotalItems, setClientTotalItems] = useState(0);
 
@@ -13,7 +17,7 @@ export default function CartIcon() {
   }, [getTotalItems]);
 
   return (
-    <Link href="/cart" className="relative text-gray-800 hover:text-primary">
+    <Link href="/cart" className={`relative ${isScrolled ? "text-[#EF4141]" : "text-[#FFFFFF]"} hover:text-red-700`}>
       <i className="fas fa-shopping-cart fa-lg"></i>
       {clientTotalItems > 0 && (
         <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
