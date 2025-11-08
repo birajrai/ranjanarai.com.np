@@ -1,4 +1,4 @@
-import HeroBanner from "@/components/HeroBanner";
+import ImageSlider from "@/components/ImageSlider";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import dynamic from 'next/dynamic';
@@ -14,11 +14,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <HeroBanner
-        imageUrl="/mockup/pouch_packaging.png"
-        title="Ranjana Achar Udhyog: Taste the Tradition, Savor the Flavor"
-        altText="Ranjana Arai's Pickles Banner Image"
-      />
+      <ImageSlider />
 
       <section className="pt-24 py-20 bg-[#F9FAFB] w-full">
         <div className="container mx-auto px-4 text-center md:flex md:items-center md:space-x-12">
