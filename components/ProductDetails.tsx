@@ -1,5 +1,6 @@
 'use client';
 
+import { calculateDiscountedPrice } from '@/lib/utils';
 import { Product } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import toast from 'react-hot-toast';
@@ -29,7 +30,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
       <div className="flex items-baseline mb-4">
         {product.discount ? (
           <p className="text-2xl font-bold text-gray-800 mr-2">
-            NPR {(product.price - (product.price * product.discount) / 100).toFixed(2)}
+            NPR {calculateDiscountedPrice(product).toFixed(2)}
           </p>
         ) : null}
         <p

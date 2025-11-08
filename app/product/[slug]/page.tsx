@@ -28,6 +28,8 @@ export async function generateStaticParams() {
 
 import ProductDetails from '@/components/ProductDetails';
 
+import { calculateDiscountedPrice } from '@/lib/utils';
+
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = products.find((p) => p.slug === slug);
@@ -63,7 +65,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               "@type": "Offer",
               "url": `https://ranjanaarai.com/product/${product.slug}`,
               "priceCurrency": "NPR",
-              "price": product.discount ? (product.price - (product.price * product.discount) / 100).toFixed(2) : product.price.toFixed(2),
+              "price": calculateDiscountedPrice(product).toFixed(2),
               "itemCondition": "https://schema.org/NewCondition",
               "availability": Number(product.stock) > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
             }

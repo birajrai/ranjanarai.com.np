@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { calculateDiscountedPrice } from "@/lib/utils";
 import { Product } from "@/data/products";
 import Link from "next/link";
 
@@ -10,9 +11,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const discountedPrice = product.discount
-    ? product.price - (product.price * product.discount) / 100
-    : product.price;
+  const discountedPrice = calculateDiscountedPrice(product);
 
   return (
     <Link href={`/product/${product.slug}`}>

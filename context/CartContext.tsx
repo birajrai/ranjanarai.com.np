@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { calculateDiscountedPrice } from '@/lib/utils';
 import { Product } from '@/data/products';
 
 interface CartItem extends Product {
@@ -68,7 +69,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const getTotalPrice = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.reduce((total, item) => total + calculateDiscountedPrice(item) * item.quantity, 0);
   };
 
   return (

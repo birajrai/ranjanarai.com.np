@@ -5,13 +5,11 @@ import dynamic from 'next/dynamic';
 import Link from "next/link";
 import Image from "next/image";
 
+import StatsSection from "@/components/StatsSection";
+
 const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"));
 
 export default function Home() {
-  const totalProducts = products.length;
-  const productCategories = [...new Set(products.map((p) => p.category))];
-  const totalSales = "NPR 0"; // Dummy value
-
   const featuredProducts = products.filter((product) => product.featured);
 
   return (
@@ -58,32 +56,7 @@ export default function Home() {
 
       <TestimonialsSection />
 
-      <section className="py-12 w-full bg-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-8">Our Numbers</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-lg shadow-md bg-gray-50 flex flex-col items-center justify-center">
-              <i className="fas fa-boxes fa-3x text-primary mb-4"></i>
-              <h3 className="text-4xl font-bold text-gray-800 mb-2">
-                {totalProducts}
-              </h3>
-              <p className="text-gray-600 text-lg">Products</p>
-            </div>
-            <div className="p-6 rounded-lg shadow-md bg-gray-50 flex flex-col items-center justify-center">
-              <i className="fas fa-tags fa-3x text-primary mb-4"></i>
-              <h3 className="text-4xl font-bold text-gray-800 mb-2">
-                {productCategories.length}
-              </h3>
-              <p className="text-gray-600 text-lg">Categories</p>
-            </div>
-            <div className="p-6 rounded-lg shadow-md bg-gray-50 flex flex-col items-center justify-center">
-              <i className="fas fa-hand-holding-dollar fa-3x text-primary mb-4"></i>
-              <h3 className="text-4xl font-bold text-gray-800 mb-2">{totalSales}</h3>
-              <p className="text-gray-600 text-lg">Total Sales</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <StatsSection />
     </main>
   );
 }
