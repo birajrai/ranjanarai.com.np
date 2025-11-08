@@ -15,7 +15,7 @@ export default function OrderConfirmationClient() {
 
   if (!transactionId || !totalPrice) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center p-6 text-center">
+      <main className="pt-24 flex min-h-screen flex-col items-center justify-center p-6 text-center">
         <h1 className="text-4xl font-bold mb-4">Order Not Found</h1>
         <p className="text-lg text-gray-600 mb-8">There was an issue retrieving your order details. Please contact support if you believe this is an error.</p>
         <Link href="/">
@@ -28,7 +28,7 @@ export default function OrderConfirmationClient() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-gray-50">
+    <main className="pt-24 flex min-h-screen flex-col items-center justify-center p-6 bg-gray-50">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-8 text-center">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">Order Placed Successfully!</h1>
         <p className="text-lg text-gray-600 mb-6">Please complete your payment by scanning the QR code below.</p>
