@@ -13,7 +13,7 @@ export default function CartPage() {
       <main className="flex min-h-screen flex-col items-center justify-center p-6 text-center">
         <i className="fas fa-shopping-cart fa-5x text-gray-400 mb-6"></i>
         <h1 className="text-4xl font-bold mb-4">Your Cart is Empty</h1>
-        <p className="text-lg text-gray-600 mb-8">Looks like you haven't added anything to your cart yet.</p>
+        <p className="text-lg text-gray-600 mb-8">Looks like you haven&apos;t added anything to your cart yet.</p>
         <Link href="/products">
           <button className="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105">
             Start Shopping

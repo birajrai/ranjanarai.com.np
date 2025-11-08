@@ -21,7 +21,7 @@ export default function ContactPage() {
   };
 
   const validateForm = () => {
-    let newErrors = { name: "", email: "", message: "" };
+    const newErrors = { name: "", email: "", message: "" };
     let isValid = true;
 
     if (!formData.name.trim()) {

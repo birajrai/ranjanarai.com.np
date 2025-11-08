@@ -3,9 +3,31 @@ import nodemailer from 'nodemailer';
 import isEmail from 'validator/lib/isEmail';
 import isMobilePhone from 'validator/lib/isMobilePhone';
 
+interface CartItem {
+  name: string;
+  quantity: number;
+  price: number;
+}
+
+interface FormData {
+  fullName: string;
+  email?: string;
+  phoneNumber: string;
+  location: {
+    latitude: number | null;
+    longitude: number | null;
+    address?: string;
+  };
+}
+
+function isNodemailerError(error: unknown): error is { code?: string; responseCode?: number; response?: string } {
+  return typeof error === 'object' && error !== null &&
+         ('code' in error || 'responseCode' in error || 'response' in error);
+}
+
 export async function POST(request: Request) {
   try {
-    const { formData, cart } = await request.json();
+    const { formData, cart }: { formData: FormData; cart: CartItem[] } = await request.json();
 
     // Basic validation for incoming data
     if (!formData || !cart || cart.length === 0) {
@@ -62,9 +84,9 @@ export async function POST(request: Request) {
         <h1>Thank you for your order, ${formData.fullName}!</h1>
         <p>Your order details:</p>
         <ul>
-          ${cart.map((item: any) => `<li>${item.name} (x${item.quantity}) - NPR ${(item.price * item.quantity).toFixed(2)}</li>`).join('')}
+          ${cart.map((item: CartItem) => `<li>${item.name} (x${item.quantity}) - NPR ${(item.price * item.quantity).toFixed(2)}</li>`).join('')}
         </ul>
-        <p>Total: NPR ${cart.reduce((total: number, item: any) => total + item.price * item.quantity, 0).toFixed(2)}</p>
+        <p>Total: NPR ${cart.reduce((total: number, item: CartItem) => total + item.price * item.quantity, 0).toFixed(2)}</p>
         <p>Transaction ID: ${transactionId}</p>
         <p>Delivery Location: ${deliveryLocation}</p>
         <p>Phone Number: ${formData.phoneNumber}</p>
@@ -90,9 +112,9 @@ export async function POST(request: Request) {
         <p>Customer Phone: ${formData.phoneNumber}</p>
         <p>Order details:</p>
         <ul>
-          ${cart.map((item: any) => `<li>${item.name} (x${item.quantity}) - NPR ${(item.price * item.quantity).toFixed(2)}</li>`).join('')}
+          ${cart.map((item: CartItem) => `<li>${item.name} (x${item.quantity}) - NPR ${(item.price * item.quantity).toFixed(2)}</li>`).join('')}
         </ul>
-        <p>Total: NPR ${cart.reduce((total: number, item: any) => total + item.price * item.quantity, 0).toFixed(2)}</p>
+        <p>Total: NPR ${cart.reduce((total: number, item: CartItem) => total + item.price * item.quantity, 0).toFixed(2)}</p>
         <p>Transaction ID: ${transactionId}</p>
         <p>Delivery Location: ${deliveryLocation}</p>
       `,
@@ -105,15 +127,19 @@ export async function POST(request: Request) {
     await transporter.sendMail(ownerMailOptions);
 
     return NextResponse.json({ message: 'Order placed successfully and confirmation emails sent!', transactionId }, { status: 200 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error placing order or sending email:', error);
 
     let errorMessage = 'Failed to place order or send confirmation emails.';
-    if (error.code === 'EENVELOPE') {
-      errorMessage = 'Email sending failed: No recipients defined. Please check email configuration.';
-    } else if (error.responseCode && error.response) {
-      // Nodemailer specific error with response from SMTP server
-      errorMessage = `Email service error: ${error.response}`;
+    if (isNodemailerError(error)) {
+      if (error.code === 'EENVELOPE') {
+        errorMessage = 'Email sending failed: No recipients defined. Please check email configuration.';
+      } else if (error.responseCode && error.response) {
+        // Nodemailer specific error with response from SMTP server
+        errorMessage = `Email service error: ${error.response}`;
+      }
+    } else if (error instanceof Error) {
+      errorMessage = error.message;
     }
 
     return NextResponse.json({ message: errorMessage }, { status: 500 });

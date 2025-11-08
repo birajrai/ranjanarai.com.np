@@ -72,7 +72,7 @@ export default function CheckoutPage() {
   };
 
   const validateForm = () => {
-    let newErrors = { ...errors };
+    const newErrors = { ...errors };
     let isValid = true;
 
     if (!formData.fullName.trim()) {

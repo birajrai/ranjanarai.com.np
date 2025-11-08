@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const productRoutes = products.map((product) => ({
     url: `${baseUrl}/product/${product.slug}`,
     lastModified: new Date().toISOString(),
-    changeFrequency: 'weekly' as 'weekly',
+    changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
 
