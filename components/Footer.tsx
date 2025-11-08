@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-800 text-white mt-8 py-8 px-4">
+    <footer className="bg-[#333333] text-[#FFFFFF] mt-8 py-8 px-4">
       <div className="container mx-auto flex flex-col items-center space-y-4">
         <Link href="/" className="flex items-center">
           <Image
@@ -21,21 +21,21 @@ const Footer: React.FC = () => {
         <div className="flex space-x-4">
           <a
             href="#"
-            className="text-[#1877F2] hover:text-[#1877F2]"
+            className="text-[#FFFFFF] hover:text-[#EF4141]"
             aria-label="Facebook"
           >
             <i className="fab fa-facebook fa-2x"></i>
           </a>
           <a
             href="#"
-            className="text-[#C13584] hover:text-[#C13584]"
+            className="text-[#FFFFFF] hover:text-[#EF4141]"
             aria-label="Instagram"
           >
             <i className="fab fa-instagram fa-2x"></i>
           </a>
           <a
             href="#"
-            className="text-[#000000] hover:text-[#000000]"
+            className="text-[#FFFFFF] hover:text-[#EF4141]"
             aria-label="TikTok"
           >
             <i className="fab fa-tiktok fa-2x"></i>

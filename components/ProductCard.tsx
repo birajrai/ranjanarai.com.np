@@ -27,13 +27,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className="w-full h-48 object-cover"
         />
         <div className="p-3">
-          <h2 className="font-bold text-xl mb-1 text-gray-800">{product.name}</h2>
+          <h2 className="font-bold text-xl mb-1 text-[#EF4141]">{product.name}</h2>
           <p className="text-gray-600 text-xs mb-1">{product.description}</p>
           <p className="text-gray-700 text-sm mb-1">Spice Level: {product.spiceLevel}</p>
           <div className="flex items-baseline justify-between mt-2">
             <div className="flex items-baseline">
               {product.discount ? (
-                <p className="text-base font-semibold text-gray-800 mr-1">
+                <p className="text-base font-semibold text-[#333333] mr-1">
                   NPR {discountedPrice.toFixed(2)}
                 </p>
               ) : null}

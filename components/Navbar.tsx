@@ -28,7 +28,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white p-6 shadow-md">
+    <nav className="bg-[#FFFFFF] p-6 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <Link
           href="/"
@@ -49,8 +49,8 @@ export default function Navbar() {
               href={item.href}
               className={`text-lg px-3 py-2 rounded-md ${
                 pathname === item.href
-                  ? "bg-primary text-white"
-                  : "text-gray-800 hover:bg-gray-100"
+                  ? "bg-[#EF4141] text-[#FFFFFF]"
+                  : "text-[#EF4141] hover:bg-gray-100"
               }`}
             >
               {item.name}
@@ -66,7 +66,7 @@ export default function Navbar() {
           <CartIcon />
           <button
             onClick={toggleMenu}
-            className="text-gray-800 focus:outline-none"
+            className="text-[#EF4141] focus:outline-none"
           >
             <i className="fas fa-bars fa-lg"></i>
           </button>
@@ -81,8 +81,8 @@ export default function Navbar() {
                 href={item.href}
                 className={`text-lg px-3 py-2 rounded-md text-center ${
                   pathname === item.href
-                    ? "bg-primary text-white"
-                    : "text-gray-800 hover:bg-gray-100"
+                    ? "bg-[#EF4141] text-[#FFFFFF]"
+                    : "text-[#EF4141] hover:bg-gray-100"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -104,8 +104,8 @@ export default function Navbar() {
                 href={item.href}
                 className={`text-lg px-3 py-2 rounded-md text-center ${
                   pathname === item.href
-                    ? "bg-primary text-white"
-                    : "text-gray-800 hover:bg-gray-100"
+                    ? "bg-[#EF4141] text-[#FFFFFF]"
+                    : "text-[#EF4141] hover:bg-gray-100"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >

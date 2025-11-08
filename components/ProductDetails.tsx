@@ -23,7 +23,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
 
   return (
     <div className="md:w-1/2">
-      <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
+      <h1 className="text-4xl font-bold mb-4 text-[#EF4141]">{product.name}</h1>
       <p className="text-gray-700 text-lg mb-4">{product.description}</p>
       <p className="text-gray-800 text-xl font-semibold mb-2">Spice Level: {product.spiceLevel}</p>
       <p className="text-gray-800 text-xl font-semibold mb-2">Ingredients: {product.ingredients.join(', ')}</p>
@@ -42,10 +42,10 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
       <p className="text-gray-700 text-lg mb-4">Stock: {product.stock}</p>
       <p className="text-gray-700 text-lg mb-4">Weight: {product.weight}</p>
       <div className="flex items-center">
-        <button onClick={handleAddToCart} className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300">
+        <button onClick={handleAddToCart} className="bg-[#EF4141] hover:bg-red-700 text-[#FFFFFF] font-bold py-3 px-6 rounded-lg shadow-md transition duration-300">
           Add to Cart
         </button>
-        <button onClick={handleAddToWishlist} className="ml-4 text-gray-500 hover:text-red-500">
+        <button onClick={handleAddToWishlist} className="ml-4 text-[#EF4141] hover:text-red-700">
           <i className="fas fa-heart fa-lg"></i>
         </button>
       </div>
