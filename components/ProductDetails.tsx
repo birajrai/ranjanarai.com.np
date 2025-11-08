@@ -2,6 +2,7 @@
 
 import { Product } from '@/data/products';
 import { useCart } from '@/context/CartContext';
+import toast from 'react-hot-toast';
 
 interface ProductDetailsProps {
   product: Product;
@@ -12,7 +13,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
 
   const handleAddToCart = () => {
     addToCart(product);
-    alert(`${product.name} added to cart!`);
+    toast.success(`${product.name} added to cart!`);
   };
 
   const handleAddToWishlist = () => {

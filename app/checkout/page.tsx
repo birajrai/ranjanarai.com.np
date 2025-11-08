@@ -5,6 +5,9 @@ import { useCart } from '@/context/CartContext';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import toast from 'react-hot-toast';
+import isEmail from 'validator/lib/isEmail';
+import isMobilePhone from 'validator/lib/isMobilePhone';
 
 export default function CheckoutPage() {
   const { cart, getTotalPrice, clearCart } = useCart();
@@ -76,15 +79,15 @@ export default function CheckoutPage() {
       newErrors.fullName = 'Full Name is required.';
       isValid = false;
     }
-    if (formData.email.trim() && !/\S+@\S+\.\S+/.test(formData.email)) {
+    if (formData.email.trim() && !isEmail(formData.email)) {
       newErrors.email = 'Email address is invalid.';
       isValid = false;
     }
     if (!formData.phoneNumber.trim()) {
       newErrors.phoneNumber = 'Phone Number is required.';
       isValid = false;
-    } else if (!/^\d{10,}$/.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = 'Phone Number is invalid (min 10 digits).';
+    } else if (!isMobilePhone(formData.phoneNumber, 'any')) { // 'any' locale for broad international numbers
+      newErrors.phoneNumber = 'Phone Number is invalid.';
       isValid = false;
     }
     if (formData.location.latitude === null || formData.location.longitude === null) {
@@ -111,17 +114,16 @@ export default function CheckoutPage() {
         const data = await response.json();
 
         if (response.ok) {
-          const transactionId = `ORD-${Date.now()}-${Math.floor(Math.random() * 1000)}`; // Dummy transaction ID
           const totalPrice = getTotalPrice().toFixed(2);
-          alert(data.message);
+          toast.success(data.message);
           clearCart();
-          router.push(`/order-confirmation?transactionId=${transactionId}&totalPrice=${totalPrice}`);
+          router.push(`/order-confirmation?transactionId=${data.transactionId}&totalPrice=${totalPrice}`);
         } else {
-          alert(`Error: ${data.message}`);
+          toast.error(`Error: ${data.message}`);
         }
       } catch (error) {
         console.error('Error submitting order:', error);
-        alert('An unexpected error occurred. Please try again.');
+        toast.error('An unexpected error occurred. Please try again.');
       }
     } else {
       console.log('Form has validation errors.');

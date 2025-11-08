@@ -13,6 +13,7 @@ const roboto = Roboto({
 });
 
 import { CartProvider } from "@/context/CartContext";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -35,6 +36,7 @@ export default function RootLayout({
           <Navbar /> {/* Use the Navbar component */}
           {children}
           <Footer />
+          <Toaster />
         </CartProvider>
       </body>
     </html>
