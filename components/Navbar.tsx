@@ -80,13 +80,18 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 className={`text-lg px-3 py-2 rounded-md text-center ${
-                  pathname === item.href ? "bg-primary text-white" : "text-gray-800 hover:bg-gray-100"
+                  pathname === item.href
+                    ? "bg-primary text-white"
+                    : "text-gray-800 hover:bg-gray-100"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
+            <div className="flex justify-center py-2">
+              <CartIcon />
+            </div>
           </div>
         </div>
       )}
@@ -98,13 +103,18 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 className={`text-lg px-3 py-2 rounded-md text-center ${
-                  pathname === item.href ? "bg-primary text-white" : "text-gray-800 hover:bg-gray-100"
+                  pathname === item.href
+                    ? "bg-primary text-white"
+                    : "text-gray-800 hover:bg-gray-100"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
+            <div className="flex justify-center py-2">
+              <CartIcon />
+            </div>
           </div>
         </div>
       )}
