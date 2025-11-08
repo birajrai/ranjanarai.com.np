@@ -228,7 +228,7 @@ export default function CheckoutPage() {
             )}
             <button
               type="submit"
-              className="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition duration-300 ease-in-out transform hover:scale-105 mt-6"
+              className="w-full bg-[#EF4141] hover:bg-red-700 text-[#FFFFFF] font-bold py-3 px-8 rounded-lg text-xl transition duration-300 ease-in-out transform hover:scale-105 mt-6"
             >
               Place Order
             </button>

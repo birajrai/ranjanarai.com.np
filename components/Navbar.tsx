@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import CartIcon from "./CartIcon";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -54,7 +53,7 @@ export default function Navbar() {
         <Link
           href="/"
           className={`text-2xl font-bold flex items-center transition-all duration-300 ${
-            isScrolled ? "text-black" : "text-black"
+            isScrolled ? "text-black" : "text-[#444444]"
           }`}
         >
           <Image
@@ -84,13 +83,8 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        {/* Cart Icon - Placed outside of the mapping for consistent positioning */}
-        <div className="hidden md:flex items-center">
-          <CartIcon isScrolled={isScrolled} />
-        </div>
         {/* Mobile menu button - visible only on mobile */}
         <div className="md:hidden flex items-center space-x-3">
-          <CartIcon isScrolled={isScrolled} />
           <button
             onClick={toggleMenu}
             className={`${
@@ -121,9 +115,6 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-          <div className="flex justify-center py-2">
-            <CartIcon isScrolled={true} />
-          </div>
         </div>
       </div>
     </nav>

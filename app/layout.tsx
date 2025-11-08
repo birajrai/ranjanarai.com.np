@@ -14,6 +14,7 @@ const roboto = Roboto({
 
 import { CartProvider } from "@/context/CartContext";
 import { Toaster } from "react-hot-toast";
+import CartIcon from "@/components/CartIcon"; // Import CartIcon
 
 export default function RootLayout({
   children,
@@ -39,6 +40,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <Toaster />
+          <CartIcon /> {/* Render CartIcon globally */}
         </CartProvider>
       </body>
     </html>
