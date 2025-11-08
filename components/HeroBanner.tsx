@@ -14,7 +14,7 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
 }) => {
   return (
     <section
-      className="relative w-full h-96"
+      className="relative w-full h-screen"
     >
       <Image
         src={imageUrl}
