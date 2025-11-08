@@ -19,14 +19,14 @@ export default function ProductsPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-6">
-      <h1 className="text-4xl font-bold mb-6">Our Delicious Pickles</h1>
-      <div className="mb-6 w-full max-w-md">
+      <h1 className="text-5xl font-bold mb-12 text-[#EF4141]">Our Delicious Pickles</h1>
+      <div className="mb-10 w-full max-w-md">
         <input
           type="text"
           placeholder="Search by name or ingredients..."
           value={searchQuery}
           onChange={handleSearchChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#EF4141]"
         />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
