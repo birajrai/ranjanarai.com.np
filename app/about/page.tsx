@@ -6,7 +6,7 @@ export const metadata = aboutMetadata;
 
 export default function AboutPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-6 bg-gray-50">
+    <main className="pt-24 flex min-h-screen flex-col items-center p-6 bg-gray-50">
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-8">
         <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center">About Ranjana Achar Udhyog</h1>
         <section className="mb-8">

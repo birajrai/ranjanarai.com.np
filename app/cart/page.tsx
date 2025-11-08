@@ -10,7 +10,7 @@ export default function CartPage() {
 
   if (cart.length === 0) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center p-6 text-center">
+      <main className="pt-24 flex min-h-screen flex-col items-center justify-center p-6 text-center">
         <i className="fas fa-shopping-cart fa-5x text-gray-400 mb-6"></i>
         <h1 className="text-4xl font-bold mb-4">Your Cart is Empty</h1>
         <p className="text-lg text-gray-600 mb-8">Looks like you haven&apos;t added anything to your cart yet.</p>
@@ -24,7 +24,7 @@ export default function CartPage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6">
+    <main className="pt-24 flex min-h-screen flex-col items-center justify-center p-6">
       <h1 className="text-4xl font-bold mb-8">Your Shopping Cart</h1>
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-8">
         <div className="space-y-6">

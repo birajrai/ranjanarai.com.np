@@ -18,7 +18,7 @@ export default function ProductsPage() {
   );
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-6">
+    <main className="pt-24 flex min-h-screen flex-col items-center p-6">
       <h1 className="text-5xl font-bold mb-12 text-[#EF4141]">Our Delicious Pickles</h1>
       <div className="mb-10 w-full max-w-md">
         <input

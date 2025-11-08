@@ -132,7 +132,7 @@ export default function CheckoutPage() {
 
   if (cart.length === 0) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center p-6">
+      <main className="pt-24 flex min-h-screen flex-col items-center justify-center p-6">
         <h1 className="text-4xl font-bold mb-4">Your Cart is Empty</h1>
         <p className="text-lg text-gray-600 mb-8">Please add items to your cart before checking out.</p>
         <Link href="/products">
@@ -145,7 +145,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-gray-50">
+    <main className="pt-24 flex min-h-screen flex-col items-center justify-center p-6 bg-gray-50">
       <h1 className="text-4xl font-bold mb-8">Checkout</h1>
       <div className="w-full max-w-5xl bg-white rounded-lg shadow-md p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Shipping Information Form */}
@@ -252,9 +252,9 @@ export default function CheckoutPage() {
               </div>
             ))}
           </div>
-          <div className="flex justify-between items-center mt-6 pt-4 border-t border-gray-300">
-            <p className="text-xl font-bold">Total:</p>
-            <p className="text-xl font-bold">NPR {getTotalPrice().toFixed(2)}</p>
+          <div className="flex justify-between items-center mt-8 pt-4 border-t">
+            <h2 className="text-2xl font-bold">Total:</h2>
+            <p className="text-2xl font-bold">NPR {getTotalPrice().toFixed(2)}</p>
           </div>
         </div>
       </div>

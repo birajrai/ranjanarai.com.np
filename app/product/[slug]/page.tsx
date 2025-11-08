@@ -46,7 +46,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   );
 
   return (
-    <div className="container mx-auto p-6 bg-white rounded-lg shadow-lg mt-8">
+    <div className="pt-24 container mx-auto p-6 bg-white rounded-lg shadow-lg mt-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
