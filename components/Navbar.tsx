@@ -70,7 +70,7 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-lg px-3 py-2 rounded-md transition-colors duration-300 ${
+              className={`text-xl font-semibold px-3 py-2 rounded-md transition-colors duration-300 ${
                 pathname === item.href
                   ? "bg-[#EF4141] text-[#FFFFFF]"
                   : isScrolled
@@ -109,7 +109,7 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-lg px-3 py-2 rounded-md text-center ${
+              className={`text-xl font-semibold px-3 py-2 rounded-md text-center ${
                 pathname === item.href
                   ? "bg-[#EF4141] text-[#FFFFFF]"
                   : "text-[#EF4141] hover:bg-gray-100"
