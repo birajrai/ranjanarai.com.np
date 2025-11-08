@@ -72,7 +72,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           })
         }}
       />
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col md:flex-row gap-10">
         <div className="md:w-1/2">
           <Image
             src={product.image}
@@ -84,9 +84,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
         <ProductDetails product={product} />
       </div>
-      <div className="mt-6">
-        <h2 className="text-xl font-bold mb-3">Gallery</h2>
-        <div className="grid grid-cols-3 gap-3">
+      <div className="mt-10">
+        <h2 className="text-3xl font-bold mb-6 text-[#EF4141]">Gallery</h2>
+        <div className="grid grid-cols-3 gap-4">
           {product.gallery.map((image, index) => (
             <Image
               key={index}
@@ -100,9 +100,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </div>
       {relatedProducts.length > 0 && (
-        <div className="mt-6">
-          <h2 className="text-xl font-bold mb-3">Related Products</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="mt-10">
+          <h2 className="text-3xl font-bold mb-6 text-[#EF4141]">Related Products</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {relatedProducts.map((relatedProduct) => (
               <ProductCard key={relatedProduct.id} product={relatedProduct} />
             ))}
