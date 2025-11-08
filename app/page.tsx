@@ -16,7 +16,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <ImageSlider />
 
-      <section className="pt-24 py-20 bg-[#F9FAFB] w-full">
+      <section className="py-20 bg-[#F9FAFB] w-full">
         <div className="container mx-auto px-4 text-center md:flex md:items-center md:space-x-12">
           <div className="md:w-1/2">
             <Image src="/mockup/jar.png" alt="Ranjana Achar Udhyog Jar" width={400} height={400} className="rounded-lg shadow-lg mx-auto" />
