@@ -47,14 +47,14 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#FFFFFF] shadow-md py-4 backdrop-blur-md bg-opacity-50" : "bg-black bg-opacity-20 backdrop-blur-sm py-6"
+        isScrolled ? "bg-[#FFFFFF] shadow-md py-4 backdrop-blur-md bg-opacity-50" : "bg-white bg-opacity-30 backdrop-blur-sm py-6"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center">
         <Link
           href="/"
           className={`text-2xl font-bold flex items-center transition-all duration-300 ${
-            isScrolled ? "text-black" : "text-[#FFFFFF]"
+            isScrolled ? "text-black" : "text-[#444444]"
           }`}
         >
           <Image
@@ -77,7 +77,7 @@ export default function Navbar() {
                     : "text-[#EF4141]"
                   : isScrolled
                   ? "text-[#444444] hover:bg-gray-100"
-                  : "text-[#FFFFFF] hover:bg-gray-100"
+                  : "text-[#444444] hover:bg-gray-100"
               }`}
             >
               {item.name}
@@ -94,7 +94,7 @@ export default function Navbar() {
           <button
             onClick={toggleMenu}
             className={`${
-              isScrolled ? "text-[#444444]" : "text-[#FFFFFF]"
+              isScrolled ? "text-[#444444]" : "text-[#444444]"
             } focus:outline-none`}
           >
             <i className="fas fa-bars fa-lg"></i>
