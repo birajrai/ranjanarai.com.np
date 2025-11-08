@@ -47,7 +47,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#FFFFFF] shadow-md py-4" : "bg-transparent py-6"
+        isScrolled ? "bg-[#FFFFFF] shadow-md py-4 backdrop-blur-md bg-opacity-50" : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center">
