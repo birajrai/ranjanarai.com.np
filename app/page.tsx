@@ -1,9 +1,12 @@
+'use client';
+
 import ImageSlider from "@/components/ImageSlider";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import dynamic from 'next/dynamic';
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import StatsSection from "@/components/StatsSection";
 
@@ -12,11 +15,33 @@ const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSecti
 export default function Home() {
   const featuredProducts = products.filter((product) => product.featured);
 
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <ImageSlider />
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
 
-      <section className="py-20 bg-[#F9FAFB] w-full">
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  return (
+    <motion.main
+      className="flex min-h-screen flex-col items-center justify-between"
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.div variants={itemVariants} className="w-full">
+        <ImageSlider />
+      </motion.div>
+
+      <motion.section variants={itemVariants} className="py-20 bg-[#F9FAFB] w-full">
         <div className="container mx-auto px-4 text-center md:flex md:items-center md:space-x-12">
           <div className="md:w-1/2">
             <Image src="/mockup/jar.png" alt="Ranjana Achar Udhyog Jar" width={400} height={400} className="rounded-lg shadow-lg mx-auto" />
@@ -29,16 +54,18 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-20 w-full">
+      <motion.section variants={itemVariants} className="py-20 w-full">
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-bold text-[#EF4141] text-center mb-12">
             Featured Products
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <motion.div key={product.id} variants={itemVariants}>
+                <ProductCard product={product} />
+              </motion.div>
             ))}
           </div>
           <div className="text-center mt-16">
@@ -49,11 +76,15 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <TestimonialsSection />
+      <motion.div variants={itemVariants} className="w-full">
+        <TestimonialsSection />
+      </motion.div>
 
-      <StatsSection />
-    </main>
+      <motion.div variants={itemVariants} className="w-full">
+        <StatsSection />
+      </motion.div>
+    </motion.main>
   );
 }
