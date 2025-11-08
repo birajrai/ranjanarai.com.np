@@ -24,7 +24,7 @@ export default function CartPage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-6">
+    <main className="flex min-h-screen flex-col items-center justify-center p-6">
       <h1 className="text-4xl font-bold mb-8">Your Shopping Cart</h1>
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-8">
         <div className="space-y-6">
