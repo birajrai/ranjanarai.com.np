@@ -7,7 +7,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const StatsSection = dynamic(() => import('@/components/StatsSection'), { ssr: false });
-import ImageSlider from "@/components/ImageSlider";
 
 
 export default function Home() {
@@ -53,36 +52,30 @@ export default function Home() {
 
             {/* Brand Name with Gaming Typography */}
             <h1 className="text-5xl md:text-7xl font-black text-[#6F4E37] mb-4 drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)] tracking-tight" style={{ textShadow: '4px 4px 0px #3E2723, 6px 6px 0px rgba(62,39,35,0.3)' }}>
-              RANJANA ACHAR
+              RANJANA ACHAR UDHYOG
             </h1>
-            <p className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-8 drop-shadow-lg">
-              Authentic Homemade Pickles
+            <p className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-4 drop-shadow-lg">
+              Authentic Homemade Pickles & Achar
+            </p>
+            <p className="text-lg md:text-xl text-[#3E2723]/80 mb-8 max-w-2xl font-semibold">
+              Traditional recipes crafted with love by Ranjana Rai. Experience the authentic taste of Nepal in every jar!
             </p>
 
             {/* Large CTA Button - Gaming Style */}
             <div className="flex flex-col sm:flex-row gap-4 items-center">
               <Link href="/products">
                 <button className="group relative px-12 py-5 bg-gradient-to-b from-[#8B5E3C] to-[#6F4E37] text-[#FFF8E1] font-black text-xl md:text-2xl rounded-xl border-4 border-[#5D4037] shadow-[0_8px_0_#4E342E] hover:shadow-[0_4px_0_#4E342E] hover:translate-y-1 active:shadow-none active:translate-y-2 transition-all duration-150 uppercase tracking-wider">
-                  <span className="relative z-10">🛒 Shop Now</span>
+                  <span className="relative z-10">🛒 Shop Pickles</span>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
                 </button>
               </Link>
 
               <Link href="/about">
                 <button className="px-10 py-4 bg-gradient-to-b from-[#F5F5DC] to-[#E8E8C8] text-[#3E2723] font-bold text-lg md:text-xl rounded-xl border-4 border-[#D7CCC8] shadow-[0_6px_0_#BCAAA4] hover:shadow-[0_3px_0_#BCAAA4] hover:translate-y-1 active:shadow-none active:translate-y-2 transition-all duration-150 uppercase tracking-wide">
-                  Our Story
+                  About Us
                 </button>
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Image Slider */}
-      <section className="py-8 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="bg-[#F5F5DC] p-2 rounded-2xl border-4 border-[#6F4E37] shadow-2xl">
-            <ImageSlider />
           </div>
         </div>
       </section>
@@ -97,7 +90,7 @@ export default function Home() {
                 ⭐ Featured Products ⭐
               </h2>
             </div>
-            <p className="text-xl text-[#3E2723] font-bold">Handpicked favorites just for you!</p>
+            <p className="text-xl text-[#3E2723] font-bold">Our most popular pickles and achar!</p>
           </div>
 
           {/* Products Grid */}
