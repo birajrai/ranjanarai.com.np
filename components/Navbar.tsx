@@ -8,7 +8,7 @@ import CartIcon from "./CartIcon";
 
 const navItems = [
   { name: "HOME", href: "/" },
-  { name: "PLAY", href: "/products" },
+  { name: "PRODUCTS", href: "/products" },
   { name: "ABOUT", href: "/about" },
   { name: "CONTACT", href: "/contact" },
 ];
@@ -45,8 +45,8 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   className={`relative px-6 py-3 font-black text-sm lg:text-base uppercase tracking-wider rounded-lg border-3 transition-all duration-150 ${pathname === item.href
-                      ? "bg-gradient-to-b from-[#8B5E3C] to-[#6F4E37] text-[#FFF8E1] border-[#5D4037] shadow-[0_4px_0_#4E342E] translate-y-0"
-                      : "bg-gradient-to-b from-[#F5F5DC] to-[#E8E8C8] text-[#3E2723] border-[#D7CCC8] shadow-[0_4px_0_#BCAAA4] hover:shadow-[0_2px_0_#BCAAA4] hover:translate-y-0.5"
+                    ? "bg-gradient-to-b from-[#8B5E3C] to-[#6F4E37] text-[#FFF8E1] border-[#5D4037] shadow-[0_4px_0_#4E342E] translate-y-0"
+                    : "bg-gradient-to-b from-[#F5F5DC] to-[#E8E8C8] text-[#3E2723] border-[#D7CCC8] shadow-[0_4px_0_#BCAAA4] hover:shadow-[0_2px_0_#BCAAA4] hover:translate-y-0.5"
                     } border-4`}
                 >
                   {item.name}
@@ -90,8 +90,8 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 className={`px-6 py-4 font-black text-base uppercase tracking-wide rounded-lg border-4 transition-all duration-150 text-center ${pathname === item.href
-                    ? "bg-gradient-to-b from-[#8B5E3C] to-[#6F4E37] text-[#FFF8E1] border-[#5D4037] shadow-[0_4px_0_#4E342E]"
-                    : "bg-gradient-to-b from-[#F5F5DC] to-[#E8E8C8] text-[#3E2723] border-[#D7CCC8] shadow-[0_4px_0_#BCAAA4]"
+                  ? "bg-gradient-to-b from-[#8B5E3C] to-[#6F4E37] text-[#FFF8E1] border-[#5D4037] shadow-[0_4px_0_#4E342E]"
+                  : "bg-gradient-to-b from-[#F5F5DC] to-[#E8E8C8] text-[#3E2723] border-[#D7CCC8] shadow-[0_4px_0_#BCAAA4]"
                   }`}
                 onClick={() => setIsMenuOpen(false)}
               >
