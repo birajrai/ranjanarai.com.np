@@ -1,12 +1,27 @@
 @import "tailwindcss";
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
+@layer components {
+  .btn-coffee-primary {
+    @apply bg-gradient-to-b from-[#8B5E3C] to-[#6F4E37] text-[#FFF8E1] font-bold py-3 px-8 rounded-lg border-2 border-[#5D4037] shadow-[0_4px_0_#4E342E] active:shadow-none active:translate-y-[4px] hover:brightness-110 transition-all duration-150 uppercase tracking-wide text-sm md:text-base;
+  }
+
+  .btn-coffee-secondary {
+    @apply bg-gradient-to-b from-[#F5F5DC] to-[#E8E8C8] text-[#3E2723] font-bold py-3 px-8 rounded-lg border-2 border-[#D7CCC8] shadow-[0_4px_0_#BCAAA4] active:shadow-none active:translate-y-[4px] hover:brightness-105 transition-all duration-150 uppercase tracking-wide text-sm md:text-base;
+  }
+}
+
 body {
   position: relative;
+  background-color: #FFF8E1;
+  color: #3E2723;
+  background-image: radial-gradient(rgba(111, 78, 55, 0.1) 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
 }

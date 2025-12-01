@@ -13,13 +13,15 @@ export default function CartIcon() {
   }, [getTotalItems]);
 
   return (
-    <Link href="/cart" className="fixed bottom-4 left-4 bg-[#EF4141] text-white p-3 rounded-full shadow-lg z-50 hover:bg-red-700 transition-colors duration-300">
-          <i className="fas fa-shopping-cart fa-2x"></i>
-          {clientTotalItems > 0 && (
-            <span className="absolute -top-1 -right-1 bg-white text-[#EF4141] rounded-full text-xs w-6 h-6 flex items-center justify-center font-bold border-2 border-[#EF4141]">
-              {clientTotalItems}
-            </span>
-          )}
-        </Link>
+    <Link href="/cart" className="relative group">
+      <div className="p-2 rounded-full hover:bg-[#F5F5DC]/50 transition-colors duration-300">
+        <i className="fas fa-shopping-cart fa-lg text-[#3E2723] group-hover:text-[#6F4E37] transition-colors duration-300"></i>
+        {clientTotalItems > 0 && (
+          <span className="absolute top-0 right-0 bg-[#6F4E37] text-[#F5F5DC] text-[10px] font-bold px-1.5 py-0.5 rounded-full border border-[#FFF8E1] shadow-sm transform translate-x-1/4 -translate-y-1/4">
+            {clientTotalItems}
+          </span>
+        )}
+      </div>
+    </Link>
   );
 }

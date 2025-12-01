@@ -9,10 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#EF4141',
-        secondary: '#FFFFFF',
-        accent: '#444444',
-        darkGray: '#333333',
+        primary: '#6F4E37', // Coffee Bean
+        secondary: '#F5F5DC', // Beige
+        accent: '#C19A6B', // Caramel
+        darkGray: '#3E2723', // Dark Brown
+        cream: '#FFF8E1', // Cream background
       },
     },
   },
